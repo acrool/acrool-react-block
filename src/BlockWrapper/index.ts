@@ -1,1 +1,1 @@
-export {default} from './BlockWrapperControl';
+export {default} from './BlockWrapper';

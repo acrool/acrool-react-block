@@ -22,7 +22,6 @@ export type TShow = (args?: IShowArgs) => void
 export type THidden = (queueKey?: string) => void;
 export type THiddenAll = () => void;
 
-export type TOnExitComplete = () => void;
 
 export interface IBlockProps {
     id?: string

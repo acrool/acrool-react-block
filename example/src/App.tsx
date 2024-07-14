@@ -17,7 +17,7 @@ function App() {
                 <Example/>
 
                 <BlockPortal
-                    renderLoader={() => <SvgLoader width="auto" height={30}/>}
+                    renderLoader={() => <SvgLoader width={30} height={30}/>}
                     isVisibleQueueKey={true}
                     defaultMessage="Loading..."
                 />

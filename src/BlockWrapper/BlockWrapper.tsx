@@ -1,12 +1,12 @@
 import CSS from 'csstype';
 import React from 'react';
 
-import SvgLoader from '../../../assets/loader.svg?react';
-import {IMessageProps} from '../../types';
-import styles from './message.module.scss';
+import SvgLoader from '../assets/loader.svg?react';
+import styles from './block-wrapper.module.scss';
+import {IBlockWrapperProps} from './types';
 
 
-interface IProps extends IMessageProps{
+interface IProps extends IBlockWrapperProps{
     style?: CSS.Properties,
     onClose?: (confirmValue?: string) => void,
 }
@@ -14,7 +14,7 @@ interface IProps extends IMessageProps{
 /**
  * Message
  */
-const Message = ({
+const BlockWrapper = ({
     style,
     queueKey,
     isVisibleQueueKey = false,
@@ -48,11 +48,12 @@ const Message = ({
 
     return (
         <div
-            className={styles.message}
+            className={styles.blockWrapper}
             style={style}
             role="alert"
         >
             {renderLoaderWrapper()}
+
             {children && <div className={styles.content} dangerouslySetInnerHTML={{__html: children}}/>}
 
             {renderInfo()}
@@ -60,5 +61,5 @@ const Message = ({
     );
 };
 
-export default Message;
+export default BlockWrapper;
 

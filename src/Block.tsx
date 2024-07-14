@@ -1,10 +1,12 @@
 import ReactPortal from '@acrool/react-portal';
 import {removeFind} from 'bear-jsutils/array';
+import {AnimatePresence} from 'framer-motion';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 
 import styles from './block.module.scss';
 import BlockWrapper from './BlockWrapper';
 import {rootId} from './config';
+import MotionDrawer from './MotionDrawer';
 import {IBlock, IBlockProps, IRow, THidden, THiddenAll, TShow} from './types';
 
 
@@ -70,14 +72,16 @@ const Block = (props: IBlockProps) => {
 
         const {message, ...itemArg} = currentRow;
 
-        return <BlockWrapper
-            onExitComplete={hidden}
-            isVisibleQueueKey={props.isVisibleQueueKey}
-            renderLoader={props.renderLoader}
-            {...itemArg}
-        >
-            {message ?? props.defaultMessage}
-        </BlockWrapper>;
+        return <MotionDrawer>
+            <BlockWrapper
+                isVisibleQueueKey={props.isVisibleQueueKey}
+                renderLoader={props.renderLoader}
+                {...itemArg}
+            >
+                {message ?? props.defaultMessage}
+            </BlockWrapper>
+        </MotionDrawer>;
+
     };
 
     return (
@@ -85,7 +89,9 @@ const Block = (props: IBlockProps) => {
             id={props.id || rootId}
             className={styles.root}
         >
-            {renderBlock()}
+            <AnimatePresence>
+                {renderBlock()}
+            </AnimatePresence>
         </ReactPortal>
     );
 };
