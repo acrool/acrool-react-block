@@ -24,9 +24,8 @@
 
 ## Features
 
-- Supports 5 status colors: default, success, info, warning, danger
-- Call via global method
-- Configurable disappearance delay seconds
+- Supports queue block list
+- Plug and unplug using `@acrool/react-portal` and `framer-motion`
 
 ## Install
 
@@ -50,32 +49,42 @@ const App = () => {
     return (
         <div>
             <BaseUsed/>
-            <BlockPortal timeout={3000}/>
+            <BlockPortal
+                isVisibleQueueKey={false}
+                defaultMessage="Loading..."
+            />
         </div>
     );
 };
 ```
 
 then in your page
+
 ```tsx
-import {EStatus, toast} from '@acrool/react-block';
+import {block} from '@acrool/react-block';
+import {useEffect} from "react";
 
 const Example = () => {
+
+    useEffect(() => {
+        block.show();
+        
+        setTimeout(() => {
+            block.hidden();
+        }, 3000)
+    }, []);
+
     return (
         <div>
-            <button type="button" onClick={() => toast({message: 'useBlock message'})}>
-                useBlock message
-            </button>
+            sample page
         </div>
     );
 };
 ```
 
-- toast
-- toast.success
-- toast.info
-- toast.warning
-- toast.error
+- block.show
+- block.hidden
+- toast.hiddenAll
 
 
 There is also a example that you can play with it:
