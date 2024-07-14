@@ -1,0 +1,97 @@
+import {block} from '@acrool/react-block';
+import AcroolTable from '@acrool/react-table';
+
+
+const Example = () => {
+
+
+    return <div style={{display: 'flex', gap: '10px', alignItems: 'flex-start', width: '100%'}}>
+
+        <AcroolTable
+            isDark
+            isVisiblePaginate={false}
+            tableCellMediaSize={768}
+            gap="10px"
+            title={{
+                name: {text: 'Name', col: '250px'},
+                use: {text: 'Use', col: true},
+            }}
+            data={[
+                {
+                    id: 1,
+                    onClickRow: () => {
+                        block.show({message: 'Loading and close after 3 seconds ...'});
+                        setTimeout(() => block.hidden(), 3000);
+                    },
+                    field: {
+                        name: 'Default',
+                        use: 'block.show({message: \'Loading and close after 3 seconds ...\'})',
+                    }
+                },
+                {
+                    id: 2,
+                    onClickRow: () => {
+                        block.show({message: 'Call shown 1'});
+
+                        setTimeout(() => block.show({message: 'Call shown 2'}), 1000);
+                        setTimeout(() => block.show({message: 'Call shown 3'}), 2000);
+
+                        setTimeout(() => block.hidden(), 3000);
+                        setTimeout(() => block.hidden(), 4000);
+                    },
+                    field: {
+                        name: 'Call shown 3 times but hidden 2 time',
+                        use: 'block.show({message: \'Call shown 1\'})',
+                    }
+                },
+                {
+                    id: 3,
+                    onClickRow: () => {
+                        block.show({message: 'Call shown 1'});
+
+                        setTimeout(() => block.show({message: 'Call shown 2'}), 1000);
+                        setTimeout(() => block.show({message: 'Call shown 3'}), 2000);
+
+                        setTimeout(() => block.hidden(), 3000);
+                        setTimeout(() => block.hidden(), 4000);
+                        setTimeout(() => block.hidden(), 5000);
+                    },
+                    field: {
+                        name: 'Call shown 3 times but hidden 3 time',
+                        use: 'block.show({message: \'Call shown 1\'})',
+                    }
+                },
+                {
+                    id: 4,
+                    onClickRow: () => {
+                        block.show({message: 'Call shown 1'});
+                        block.show({message: 'Call shown 2'});
+                        block.show({message: 'Call shown 3'});
+
+                        block.hidden();
+
+                        setTimeout(() => {
+                            block.hidden();
+                            block.hidden();
+                        }, 3000);
+                    },
+                    field: {
+                        name: 'Call shown 3 times but hidden 3 time and same time',
+                        use: 'block.show({message: \'Call shown 1\'})',
+                    }
+                },
+
+
+            ]}
+
+        />
+
+
+    </div>;
+};
+
+export default Example;
+
+
+
+
