@@ -1,9 +1,9 @@
 import CSS from 'csstype';
 import React from 'react';
 
+import SvgLoading from '../../../assets/loading.svg?react';
 import {IMessageProps} from '../../types';
 import styles from './message.module.scss';
-import SvgLoading from '../../../assets/loading.svg?react';
 
 
 interface IProps extends IMessageProps{
@@ -16,8 +16,8 @@ interface IProps extends IMessageProps{
  */
 const Message = ({
     style,
-    code,
-    path,
+    queueKey,
+    isVisibleQueueKey = false,
     children,
 }: IProps) => {
 
@@ -25,13 +25,12 @@ const Message = ({
      * 渲染除錯資訊
      */
     const renderInfo = () => {
-        const content = [code, path].filter(curr => curr);
-        if(content.length === 0){
+        if(!isVisibleQueueKey || !queueKey){
             return null;
         }
 
         return <div className={styles.statusCode}>
-            {`${content.join(' | ')}`}
+            {queueKey}
         </div>;
     };
 

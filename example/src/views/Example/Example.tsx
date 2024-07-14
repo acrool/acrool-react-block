@@ -98,7 +98,9 @@ const Example = () => {
                         block.show({message: 'Call shown 2'});
                         block.show({message: 'Call shown 3', queueKey: 'call1'});
 
-                        block.hidden('call1');
+                        setTimeout(() => {
+                            block.hidden('call1');
+                        },1000);
 
                         setTimeout(() => {
                             block.hidden();

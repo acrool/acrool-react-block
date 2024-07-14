@@ -2,8 +2,8 @@ import {ReactNode} from 'react';
 
 
 export interface IMessageProps {
-    code?: string,
-    path?: string,
+    queueKey?: string,
+    isVisibleQueueKey?: boolean,
     children: ReactNode
 }
 

@@ -13,16 +13,14 @@ interface IProps extends IMessageProps{
 /**
  * 控制 Block
  * @param status
- * @param code
- * @param path
  * @param children
  * @param onExitComplete
  */
 const BlockWrapperControl = ({
     onExitComplete,
 
-    code,
-    path,
+    queueKey,
+    isVisibleQueueKey = false,
     children,
 }: IProps) => {
     const [isVisible, setVisible] = useState<boolean>(true);
@@ -42,9 +40,8 @@ const BlockWrapperControl = ({
         >
             <Message
                 onClose={handleHidden}
-
-                code={code}
-                path={path}
+                isVisibleQueueKey={isVisibleQueueKey}
+                queueKey={queueKey}
             >
                 {children}
             </Message>

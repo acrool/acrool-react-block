@@ -1,11 +1,11 @@
 import ReactPortal from '@acrool/react-portal';
+import {removeFind} from 'bear-jsutils/array';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 
 import styles from './block.module.scss';
 import BlockWrapper from './BlockWrapper';
 import {rootId} from './config';
-import {Queue} from './queue';
-import {IBlock, IBlockProps, IItem, THidden, TShow} from './types';
+import {IBlock, IBlockProps, IRow, THidden, TShow} from './types';
 
 
 /**
@@ -16,8 +16,7 @@ export let block: IBlock;
 export const defaultKey = 'globalBlock';
 
 const Block = (props: IBlockProps) => {
-    const [item, setItem] = useState<IItem>();
-    const queueRef = useRef<Queue>(new Queue());
+    const [rows, setRows] = useState<IRow[]>([]);
 
     // set global
     useEffect(() => {
@@ -33,9 +32,8 @@ const Block = (props: IBlockProps) => {
      * @param newItem
      */
     const show: TShow = useCallback((args) => {
-        queueRef.current.add(args?.queueKey ?? defaultKey);
+        setRows(prevRows => [...prevRows, {queueKey: defaultKey, ...args}]);
 
-        setItem({queueKey: defaultKey, ...args});
     }, []);
 
 
@@ -43,13 +41,10 @@ const Block = (props: IBlockProps) => {
      * 刪除 Block 在 Dom 中
      * @param key
      */
-    const hidden: THidden = useCallback((queueKey) => {
-        queueRef.current.remove(queueKey ?? defaultKey);
-        if(queueRef.current.length > 0){
-            return;
-        }
-
-        setItem(undefined);
+    const hidden: THidden = useCallback((queueKey = defaultKey) => {
+        setRows(prevRows => {
+            return removeFind(prevRows, curr => curr.queueKey === queueKey);
+        });
     }, []);
 
 
@@ -57,9 +52,17 @@ const Block = (props: IBlockProps) => {
      * 渲染項目
      */
     const renderBlock = () => {
-        const {message, ...itemArg} = item;
+        const currentRow = rows?.[rows.length -1];
+
+        if(!currentRow){
+            return null;
+        }
+
+        const {message, ...itemArg} = currentRow;
+
         return <BlockWrapper
             onExitComplete={hidden}
+            isVisibleQueueKey={props.isVisibleQueueKey}
             {...itemArg}
         >
             {message ?? props.defaultMessage}
@@ -71,7 +74,7 @@ const Block = (props: IBlockProps) => {
             id={props.id || rootId}
             className={styles.root}
         >
-            {item && renderBlock()}
+            {renderBlock()}
         </ReactPortal>
     );
 };

@@ -16,6 +16,7 @@ function App() {
                 <Example/>
 
                 <BlockPortal
+                    isVisibleQueueKey={true}
                     defaultMessage="Loading..."
                 />
 

@@ -1,10 +1,9 @@
 import {ReactNode} from 'react';
 
 
-export interface IItem {
+export interface IRow {
+    queueKey?: string
     message?: ReactNode,
-    code?: string,
-    path?: string,
 }
 
 
@@ -14,8 +13,7 @@ export interface IBlock {
     hidden: THidden
 }
 
-interface IShowArgs extends IItem{
-    queueKey?: string
+interface IShowArgs extends IRow{
 }
 
 
@@ -27,4 +25,5 @@ export type TOnExitComplete = () => void;
 export interface IBlockProps {
     id?: string
     defaultMessage?: string
+    isVisibleQueueKey?: boolean
 }

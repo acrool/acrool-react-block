@@ -1,4 +1,4 @@
-import {removeFind, push} from 'bear-jsutils/array';
+import {push,removeFind} from 'bear-jsutils/array';
 
 
 
