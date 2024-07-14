@@ -19,7 +19,7 @@ const BlockWrapper = ({
     queueKey,
     isVisibleQueueKey = false,
     renderLoader,
-    children,
+    message,
 }: IProps) => {
 
     /**
@@ -54,7 +54,7 @@ const BlockWrapper = ({
         >
             {renderLoaderWrapper()}
 
-            {children && <div className={styles.content} dangerouslySetInnerHTML={{__html: children}}/>}
+            {message && <div className={styles.content} dangerouslySetInnerHTML={{__html: message}}/>}
 
             {renderInfo()}
         </div>

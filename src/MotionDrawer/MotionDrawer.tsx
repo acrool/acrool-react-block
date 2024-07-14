@@ -22,13 +22,12 @@ const modalVariantsItem: Variants = {
 
 interface IProps {
     className?: string
-    isVisible?: boolean
     children: ReactNode
 }
 
 
 /**
- * 開啟動畫
+ * 開啟動畫抽屜
  * @param isVisible
  * @param children
  */

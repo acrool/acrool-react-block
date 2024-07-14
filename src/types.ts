@@ -1,9 +1,9 @@
 import {ReactNode} from 'react';
 
+import {IBlockWrapperProps} from './BlockWrapper';
 
-export interface IRow {
-    queueKey?: string
-    message?: ReactNode,
+
+export interface IRow extends IBlockWrapperProps{
 }
 
 

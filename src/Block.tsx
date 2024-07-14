@@ -1,7 +1,7 @@
 import ReactPortal from '@acrool/react-portal';
 import {removeFind} from 'bear-jsutils/array';
 import {AnimatePresence} from 'framer-motion';
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 import styles from './block.module.scss';
 import BlockWrapper from './BlockWrapper';
@@ -76,10 +76,9 @@ const Block = (props: IBlockProps) => {
             <BlockWrapper
                 isVisibleQueueKey={props.isVisibleQueueKey}
                 renderLoader={props.renderLoader}
+                message={message ?? props.defaultMessage}
                 {...itemArg}
-            >
-                {message ?? props.defaultMessage}
-            </BlockWrapper>
+            />
         </MotionDrawer>;
 
     };
