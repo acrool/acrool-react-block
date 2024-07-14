@@ -1,6 +1,6 @@
 {
   "name": "@acrool/react-block",
-  "version": "0.0.2",
+  "version": "0.0.3-alpha.0",
   "description": "Block library based for Reactjs",
   "keywords": [
     "acrool",
