@@ -13,7 +13,7 @@ const Example = () => {
             tableCellMediaSize={768}
             gap="10px"
             title={{
-                name: {text: 'Name', col: '250px'},
+                name: {text: 'Name', col: '450px'},
                 use: {text: 'Use', col: true},
             }}
             data={[
@@ -25,7 +25,7 @@ const Example = () => {
                     },
                     field: {
                         name: 'Default',
-                        use: 'block.show({message: \'Loading and close after 3 seconds ...\'})',
+                        use: 'block.show()',
                     }
                 },
                 {
@@ -35,7 +35,7 @@ const Example = () => {
                         setTimeout(() => block.hidden(), 3000);
                     },
                     field: {
-                        name: 'Default',
+                        name: 'Custom Message',
                         use: 'block.show({message: \'Loading and close after 3 seconds ...\'})',
                     }
                 },
@@ -52,7 +52,7 @@ const Example = () => {
                     },
                     field: {
                         name: 'Call shown 3 times but hidden 2 time',
-                        use: 'block.show({message: \'Call shown 1\'})',
+                        use: '',
                     }
                 },
                 {
@@ -69,7 +69,7 @@ const Example = () => {
                     },
                     field: {
                         name: 'Call shown 3 times but hidden 3 time',
-                        use: 'block.show({message: \'Call shown 1\'})',
+                        use: '',
                     }
                 },
                 {
@@ -88,7 +88,7 @@ const Example = () => {
                     },
                     field: {
                         name: 'Call shown 3 times but hidden 3 time and same time',
-                        use: 'block.show({message: \'Call shown 1\'})',
+                        use: '',
                     }
                 },
                 {
@@ -108,8 +108,8 @@ const Example = () => {
                         }, 3000);
                     },
                     field: {
-                        name: 'Call shown 3 times but hidden 3 time and same time',
-                        use: 'block.show({message: \'Call shown 1\'})',
+                        name: 'Call shown queueKey hidden sort',
+                        use: '',
                     }
                 },
 
