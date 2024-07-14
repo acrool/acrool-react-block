@@ -1,7 +1,7 @@
 import CSS from 'csstype';
 import React from 'react';
 
-import SvgLoading from '../../../assets/loading.svg?react';
+import SvgLoader from '../../../assets/loader.svg?react';
 import {IMessageProps} from '../../types';
 import styles from './message.module.scss';
 
@@ -18,6 +18,7 @@ const Message = ({
     style,
     queueKey,
     isVisibleQueueKey = false,
+    renderLoader,
     children,
 }: IProps) => {
 
@@ -34,14 +35,24 @@ const Message = ({
         </div>;
     };
 
+
+    /**
+     * 渲染讀取圖標
+     */
+    const renderLoaderWrapper = () => {
+        if(renderLoader){
+            return renderLoader();
+        }
+        return <SvgLoader className={styles.loadingSvg}/>;
+    };
+
     return (
         <div
             className={styles.message}
             style={style}
             role="alert"
         >
-            <SvgLoading className={styles.loadingSvg} width={30}/>
-
+            {renderLoaderWrapper()}
             {children && <div className={styles.content} dangerouslySetInnerHTML={{__html: children}}/>}
 
             {renderInfo()}

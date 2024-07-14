@@ -51,6 +51,7 @@ const App = () => {
             <BaseUsed/>
             <BlockPortal
                 isVisibleQueueKey={false}
+                renderLoader={<Loader/>}
                 defaultMessage="Loading..."
             />
         </div>

@@ -2,10 +2,9 @@
 # yarn lockfile v1
 
 
-"@acrool/react-block@0.0.2-alpha.16":
-  version "0.0.2-alpha.16"
-  resolved "https://registry.yarnpkg.com/@acrool/react-block/-/react-block-0.0.2-alpha.16.tgz#7a58549ef607edd81d33d2b6cbc616a55d4c9cc9"
-  integrity sha512-nq12++19xYZu2OCvONYffVDJg+gEoZVnV5bHHPaByutHFSbhnMX6F1vVI896w/48Cs/WRts/yPOXF90DhBhWww==
+"@acrool/react-block@link:..":
+  version "0.0.0"
+  uid ""
 
 "@acrool/react-grid@5.2.2":
   version "5.2.2"

@@ -28,4 +28,5 @@ export interface IBlockProps {
     id?: string
     defaultMessage?: string
     isVisibleQueueKey?: boolean
+    renderLoader?: () => ReactNode
 }

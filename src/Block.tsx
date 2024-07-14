@@ -73,6 +73,7 @@ const Block = (props: IBlockProps) => {
         return <BlockWrapper
             onExitComplete={hidden}
             isVisibleQueueKey={props.isVisibleQueueKey}
+            renderLoader={props.renderLoader}
             {...itemArg}
         >
             {message ?? props.defaultMessage}

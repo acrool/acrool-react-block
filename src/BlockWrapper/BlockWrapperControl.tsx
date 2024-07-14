@@ -21,6 +21,7 @@ const BlockWrapperControl = ({
 
     queueKey,
     isVisibleQueueKey = false,
+    renderLoader,
     children,
 }: IProps) => {
     const [isVisible, setVisible] = useState<boolean>(true);
@@ -40,6 +41,7 @@ const BlockWrapperControl = ({
         >
             <Message
                 onClose={handleHidden}
+                renderLoader={renderLoader}
                 isVisibleQueueKey={isVisibleQueueKey}
                 queueKey={queueKey}
             >
