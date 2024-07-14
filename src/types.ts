@@ -2,7 +2,7 @@ import {ReactNode} from 'react';
 
 
 export interface IItem {
-    message: ReactNode,
+    message?: ReactNode,
     code?: string,
     path?: string,
 }
@@ -10,24 +10,21 @@ export interface IItem {
 
 
 export interface IBlock {
-    show: (args: IShowArgs) => void
-    hidden: () => void;
+    show: TShow
+    hidden: THidden
 }
 
-interface IShowArgs extends IStatusShowArgs{
-    message: ReactNode,
+interface IShowArgs extends IItem{
+    queueKey?: string
 }
 
-interface IStatusShowArgs {
-    code?: string,
-    path?: string,
-}
 
-export type TShow = (args: IShowArgs) => void
-export type THidden = () => void;
+export type TShow = (args?: IShowArgs) => void
+export type THidden = (queueKey?: string) => void;
 
 export type TOnExitComplete = () => void;
 
 export interface IBlockProps {
     id?: string
+    defaultMessage?: string
 }

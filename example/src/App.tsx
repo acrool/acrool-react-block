@@ -1,11 +1,10 @@
-import {BlockPortal} from '@acrool/react-block';
-
 import './App.css';
-import Example from './views/Example';
-import Banner from './components/Banner';
+
+import {BlockPortal} from '@acrool/react-block';
 import {GridThemeProvider} from '@acrool/react-grid';
-import Button from './components/Button';
-import TextField from './components/TextField';
+
+import Banner from './components/Banner';
+import Example from './views/Example';
 
 
 
@@ -17,22 +16,7 @@ function App() {
                 <Example/>
 
                 <BlockPortal
-                    renderButton={(args) => {
-                        return <Button
-                            className={args.className}
-                            children={args.children}
-                            color={args.color}
-                            onClick={args.onClick}
-                            isBlock
-                            size="md"
-                        />;
-                    }}
-                    renderTextField={(args) => {
-                        return <TextField
-                            {...args}
-                            isAutoFocus
-                        />;
-                    }}
+                    defaultMessage="Loading..."
                 />
 
             </div>

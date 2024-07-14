@@ -20,7 +20,7 @@ const Example = () => {
                 {
                     id: 1,
                     onClickRow: () => {
-                        block.show({message: 'Loading and close after 3 seconds ...'});
+                        block.show();
                         setTimeout(() => block.hidden(), 3000);
                     },
                     field: {
@@ -30,6 +30,17 @@ const Example = () => {
                 },
                 {
                     id: 2,
+                    onClickRow: () => {
+                        block.show({message: 'Loading and close after 3 seconds ...'});
+                        setTimeout(() => block.hidden(), 3000);
+                    },
+                    field: {
+                        name: 'Default',
+                        use: 'block.show({message: \'Loading and close after 3 seconds ...\'})',
+                    }
+                },
+                {
+                    id: 3,
                     onClickRow: () => {
                         block.show({message: 'Call shown 1'});
 
@@ -45,7 +56,7 @@ const Example = () => {
                     }
                 },
                 {
-                    id: 3,
+                    id: 4,
                     onClickRow: () => {
                         block.show({message: 'Call shown 1'});
 
@@ -62,13 +73,32 @@ const Example = () => {
                     }
                 },
                 {
-                    id: 4,
+                    id: 5,
                     onClickRow: () => {
                         block.show({message: 'Call shown 1'});
                         block.show({message: 'Call shown 2'});
                         block.show({message: 'Call shown 3'});
 
                         block.hidden();
+
+                        setTimeout(() => {
+                            block.hidden();
+                            block.hidden();
+                        }, 3000);
+                    },
+                    field: {
+                        name: 'Call shown 3 times but hidden 3 time and same time',
+                        use: 'block.show({message: \'Call shown 1\'})',
+                    }
+                },
+                {
+                    id: 6,
+                    onClickRow: () => {
+                        block.show({message: 'Call shown 1'});
+                        block.show({message: 'Call shown 2'});
+                        block.show({message: 'Call shown 3', queueKey: 'call1'});
+
+                        block.hidden('call1');
 
                         setTimeout(() => {
                             block.hidden();

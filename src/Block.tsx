@@ -13,7 +13,7 @@ import {IBlock, IBlockProps, IItem, THidden, TShow} from './types';
  */
 export let block: IBlock;
 
-
+export const defaultKey = 'globalBlock';
 
 const Block = (props: IBlockProps) => {
     const [item, setItem] = useState<IItem>();
@@ -33,9 +33,9 @@ const Block = (props: IBlockProps) => {
      * @param newItem
      */
     const show: TShow = useCallback((args) => {
-        queueRef.current.add();
+        queueRef.current.add(args?.queueKey ?? defaultKey);
 
-        setItem(args);
+        setItem({queueKey: defaultKey, ...args});
     }, []);
 
 
@@ -43,8 +43,8 @@ const Block = (props: IBlockProps) => {
      * 刪除 Block 在 Dom 中
      * @param key
      */
-    const hidden: THidden = useCallback(() => {
-        queueRef.current.remove();
+    const hidden: THidden = useCallback((queueKey) => {
+        queueRef.current.remove(queueKey ?? defaultKey);
         if(queueRef.current.length > 0){
             return;
         }
@@ -62,7 +62,7 @@ const Block = (props: IBlockProps) => {
             onExitComplete={hidden}
             {...itemArg}
         >
-            {message}
+            {message ?? props.defaultMessage}
         </BlockWrapper>;
     };
 

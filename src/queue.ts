@@ -1,7 +1,6 @@
 import {removeFind, push} from 'bear-jsutils/array';
 
 
-const defaultKey = 'global';
 
 /**
  * 控制顯示佇列
@@ -17,10 +16,10 @@ export class Queue {
     get length(){
         return this._queueList.length;
     }
-    add = (key = defaultKey) => {
+    add = (key: string) => {
         this._queueList = push(this._queueList, key);
     };
-    remove = (key = defaultKey)  => {
+    remove = (key: string)  => {
         this._queueList = removeFind(this._queueList, currKey => currKey === key);
     };
 }
