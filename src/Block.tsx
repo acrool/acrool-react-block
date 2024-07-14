@@ -5,7 +5,7 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import styles from './block.module.scss';
 import BlockWrapper from './BlockWrapper';
 import {rootId} from './config';
-import {IBlock, IBlockProps, IRow, THidden, TShow} from './types';
+import {IBlock, IBlockProps, IRow, THidden, THiddenAll, TShow} from './types';
 
 
 /**
@@ -23,6 +23,7 @@ const Block = (props: IBlockProps) => {
         block = {
             show,
             hidden,
+            hiddenAll,
         };
     }, []);
 
@@ -45,6 +46,15 @@ const Block = (props: IBlockProps) => {
         setRows(prevRows => {
             return removeFind(prevRows, curr => curr.queueKey === queueKey);
         });
+    }, []);
+
+
+    /**
+     * 刪除 所有Block 在 Dom 中
+     * @param key
+     */
+    const hiddenAll: THiddenAll = useCallback(() => {
+        setRows([]);
     }, []);
 
 
