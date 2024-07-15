@@ -21,14 +21,12 @@ const modalVariantsItem: Variants = {
 };
 
 interface IProps {
-    className?: string
     children: ReactNode
 }
 
 
 /**
  * 開啟動畫抽屜
- * @param isVisible
  * @param children
  */
 const MotionDrawer = ({
