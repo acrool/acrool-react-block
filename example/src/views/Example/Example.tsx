@@ -21,7 +21,7 @@ const Example = () => {
                     id: 1,
                     onClickRow: () => {
                         block.show();
-                        setTimeout(() => block.hidden(), 3000);
+                        setTimeout(() => block.hide(), 3000);
                     },
                     field: {
                         name: 'Default',
@@ -32,7 +32,7 @@ const Example = () => {
                     id: 2,
                     onClickRow: () => {
                         block.show({message: 'Loading and close after 3 seconds ...'});
-                        setTimeout(() => block.hidden(), 3000);
+                        setTimeout(() => block.hide(), 3000);
                     },
                     field: {
                         name: 'Custom Message',
@@ -47,8 +47,8 @@ const Example = () => {
                         setTimeout(() => block.show({message: 'Call shown 2'}), 1000);
                         setTimeout(() => block.show({message: 'Call shown 3'}), 2000);
 
-                        setTimeout(() => block.hidden(), 3000);
-                        setTimeout(() => block.hidden(), 4000);
+                        setTimeout(() => block.hide(), 3000);
+                        setTimeout(() => block.hide(), 4000);
                     },
                     field: {
                         name: 'Call shown 3 times but hidden 2 time',
@@ -63,12 +63,12 @@ const Example = () => {
                         setTimeout(() => block.show({message: 'Call shown 2'}), 1000);
                         setTimeout(() => block.show({message: 'Call shown 3'}), 2000);
 
-                        setTimeout(() => block.hidden(), 3000);
-                        setTimeout(() => block.hidden(), 4000);
-                        setTimeout(() => block.hidden(), 5000);
+                        setTimeout(() => block.hide(), 3000);
+                        setTimeout(() => block.hide(), 4000);
+                        setTimeout(() => block.hide(), 5000);
                     },
                     field: {
-                        name: 'Call shown 3 times but hidden 3 time',
+                        name: 'Call shown 3 times but hide 3 time',
                         use: '',
                     }
                 },
@@ -79,15 +79,15 @@ const Example = () => {
                         block.show({message: 'Call shown 2'});
                         block.show({message: 'Call shown 3'});
 
-                        block.hidden();
+                        block.hide();
 
                         setTimeout(() => {
-                            block.hidden();
-                            block.hidden();
+                            block.hide();
+                            block.hide();
                         }, 3000);
                     },
                     field: {
-                        name: 'Call shown 3 times but hidden 3 time and same time',
+                        name: 'Call shown 3 times but hide 3 time and same time',
                         use: '',
                     }
                 },
@@ -99,12 +99,12 @@ const Example = () => {
                         block.show({message: 'Call shown 3', queueKey: 'call1'});
 
                         setTimeout(() => {
-                            block.hidden('call1');
+                            block.hide('call1');
                         },1000);
 
                         setTimeout(() => {
-                            block.hidden();
-                            block.hidden();
+                            block.hide();
+                            block.hide();
                         }, 3000);
                     },
                     field: {

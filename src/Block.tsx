@@ -1,13 +1,13 @@
 import ReactPortal from '@acrool/react-portal';
-import {removeFind} from 'bear-jsutils/array';
 import {AnimatePresence} from 'framer-motion';
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback} from 'react';
 
 import styles from './block.module.scss';
 import BlockWrapper from './BlockWrapper';
 import {rootId} from './config';
 import MotionDrawer from './MotionDrawer';
-import {IBlock, IBlockProps, IRow, THidden, THiddenAll, TShow} from './types';
+import {IBlock, IBlockProps, IRow, THide, THideAll, TShow} from './types';
+import {removeByIndex} from './utils';
 
 
 /**
@@ -15,58 +15,73 @@ import {IBlock, IBlockProps, IRow, THidden, THiddenAll, TShow} from './types';
  */
 export let block: IBlock;
 
+
+interface IState {
+    rows: IRow[]
+}
 export const defaultKey = 'globalBlock';
 
-const Block = (props: IBlockProps) => {
-    const [rows, setRows] = useState<IRow[]>([]);
+class Block extends React.Component<IBlockProps, IState> {
+    state: IState = {
+        rows: []
+    };
 
-    // set global
-    useEffect(() => {
+    constructor(props) {
+        super(props);
+
         block = {
-            show,
-            hidden,
-            hiddenAll,
+            show: this.show,
+            hide: this.hide,
+            hideAll: this.hideAll,
         };
-    }, []);
-
+    }
 
     /**
      * 顯示 Block
-     * @param newItem
+     * @param args
      */
-    const show: TShow = useCallback((args) => {
-        setRows(prevRows => [...prevRows, {queueKey: defaultKey, ...args}]);
+    show: TShow = (args) => {
+        this.setState(prev => {
+            return {
+                rows: [...prev.rows, {queueKey: defaultKey, ...args}]
+            };
+        });
 
-    }, []);
+    };
 
 
     /**
      * 刪除 Block 在 Dom 中
-     * @param key
+     * @param queueKey
      */
-    const hidden: THidden = useCallback((queueKey = defaultKey) => {
-        setRows(prevRows => {
-            return removeFind(prevRows, curr => curr.queueKey === queueKey);
+    hide: THide = (queueKey = defaultKey) => {
+
+        this.setState(prev => {
+            const index = prev.rows.findIndex(row => row.queueKey === queueKey);
+            return {
+                rows: removeByIndex(prev.rows, index),
+            };
         });
-    }, []);
+
+    };
 
 
     /**
      * 刪除 所有Block 在 Dom 中
-     * @param key
      */
-    const hiddenAll: THiddenAll = useCallback(() => {
-        setRows([]);
-    }, []);
+    hideAll: THideAll = () => {
+        this.setState({rows: []});
+    };
 
 
     /**
      * 渲染項目
      */
-    const renderBlock = () => {
-        const currentRow = rows?.[rows.length -1];
+    renderBlock = () => {
+        const {rows} = this.state;
+        const currentRow = rows?.[rows.length - 1];
 
-        if(!currentRow){
+        if (!currentRow) {
             return null;
         }
 
@@ -74,25 +89,27 @@ const Block = (props: IBlockProps) => {
 
         return <MotionDrawer>
             <BlockWrapper
-                isVisibleQueueKey={props.isVisibleQueueKey}
-                renderLoader={props.renderLoader}
-                message={message ?? props.defaultMessage}
+                isVisibleQueueKey={this.props.isVisibleQueueKey}
+                renderLoader={this.props.renderLoader}
+                message={message ?? this.props.defaultMessage}
                 {...itemArg}
             />
         </MotionDrawer>;
 
     };
 
-    return (
-        <ReactPortal
-            id={props.id || rootId}
-            className={styles.root}
-        >
-            <AnimatePresence>
-                {renderBlock()}
-            </AnimatePresence>
-        </ReactPortal>
-    );
-};
+    render() {
+        return (
+            <ReactPortal
+                id={this.props.id || rootId}
+                className={styles.root}
+            >
+                <AnimatePresence>
+                    {this.renderBlock()}
+                </AnimatePresence>
+            </ReactPortal>
+        );
+    }
+}
 
 export default Block;

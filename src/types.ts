@@ -10,8 +10,8 @@ export interface IRow extends IBlockWrapperProps{
 
 export interface IBlock {
     show: TShow
-    hidden: THidden
-    hiddenAll: THiddenAll
+    hide: THide
+    hideAll: THideAll
 }
 
 interface IShowArgs extends IRow{
@@ -19,8 +19,8 @@ interface IShowArgs extends IRow{
 
 
 export type TShow = (args?: IShowArgs) => void
-export type THidden = (queueKey?: string) => void;
-export type THiddenAll = () => void;
+export type THide = (queueKey?: string) => void;
+export type THideAll = () => void;
 
 
 export interface IBlockProps {
