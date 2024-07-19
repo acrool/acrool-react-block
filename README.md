@@ -71,7 +71,7 @@ const Example = () => {
         block.show();
         
         setTimeout(() => {
-            block.hidden();
+            block.hide();
         }, 3000)
     }, []);
 
@@ -84,8 +84,8 @@ const Example = () => {
 ```
 
 - block.show
-- block.hidden
-- toast.hiddenAll
+- block.hide
+- toast.hideAll
 
 
 There is also a example that you can play with it:

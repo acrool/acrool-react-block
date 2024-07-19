@@ -51,7 +51,7 @@ const Example = () => {
                         setTimeout(() => block.hide(), 4000);
                     },
                     field: {
-                        name: 'Call shown 3 times but hidden 2 time',
+                        name: 'Call shown 3 times but hide 2 time',
                         use: '',
                     }
                 },
@@ -108,7 +108,7 @@ const Example = () => {
                         }, 3000);
                     },
                     field: {
-                        name: 'Call shown queueKey hidden sort',
+                        name: 'Call shown queueKey hide sort',
                         use: '',
                     }
                 },
