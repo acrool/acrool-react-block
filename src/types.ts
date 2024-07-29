@@ -1,6 +1,7 @@
 import {ReactNode} from 'react';
 
 import {IBlockWrapperProps} from './BlockWrapper';
+import {Transition, Variant} from "framer-motion";
 
 
 export interface IRow extends IBlockWrapperProps{
@@ -28,4 +29,14 @@ export interface IBlockProps {
     defaultMessage?: string
     isVisibleQueueKey?: boolean
     renderLoader?: () => ReactNode
+}
+
+type TVariantKey = 'initial'|'show'|'exit'
+export type TAnimationVariants = Record<TVariantKey, Variant>;
+
+export interface IBlockOptions {
+    variants?: TAnimationVariants
+    transition?: Transition
+    className?: string
+    isEnableHideWithClickMask?: boolean
 }
