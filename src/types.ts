@@ -1,7 +1,7 @@
+import {Transition, Variant} from 'framer-motion';
 import {ReactNode} from 'react';
 
 import {IBlockWrapperProps} from './BlockWrapper';
-import {Transition, Variant} from "framer-motion";
 
 
 export interface IRow extends IBlockWrapperProps{

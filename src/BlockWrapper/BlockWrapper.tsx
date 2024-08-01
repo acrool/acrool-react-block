@@ -1,3 +1,4 @@
+import {clsx} from 'clsx';
 import CSS from 'csstype';
 import React from 'react';
 
@@ -7,8 +8,9 @@ import {IBlockWrapperProps} from './types';
 
 
 interface IProps extends IBlockWrapperProps{
-    style?: CSS.Properties,
-    onClose?: (confirmValue?: string) => void,
+    style?: CSS.Properties
+    className?: string
+    onClose?: (confirmValue?: string) => void
 }
 
 /**
@@ -16,6 +18,7 @@ interface IProps extends IBlockWrapperProps{
  */
 const BlockWrapper = ({
     style,
+    className,
     queueKey,
     isVisibleQueueKey = false,
     renderLoader,
@@ -48,7 +51,7 @@ const BlockWrapper = ({
 
     return (
         <div
-            className={styles.blockWrapper}
+            className={clsx(styles.blockWrapper, className)}
             style={style}
             role="alert"
         >
