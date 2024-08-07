@@ -1,10 +1,9 @@
 import ReactPortal from '@acrool/react-portal';
 import {AnimatePresence} from 'framer-motion';
-import React, {useCallback} from 'react';
+import React from 'react';
 
 import styles from './block.module.scss';
 import BlockWrapper from './BlockWrapper';
-import {rootId} from './config';
 import MotionDrawer from './MotionDrawer';
 import {IBlock, IBlockProps, IRow, THide, THideAll, TShow} from './types';
 import {removeByIndex} from './utils';
@@ -25,6 +24,14 @@ class Block extends React.Component<IBlockProps, IState> {
     state: IState = {
         rows: []
     };
+
+    static defaultProps = {
+        id: 'acrool-react-block',
+    };
+
+    get typeProps(){
+        return this.props as IBlockProps & typeof Block.defaultProps;
+    }
 
     constructor(props) {
         super(props);
@@ -101,8 +108,9 @@ class Block extends React.Component<IBlockProps, IState> {
     render() {
         return (
             <ReactPortal
-                id={this.props.id || rootId}
+                id={this.typeProps.id}
                 className={styles.root}
+                containerId={this.typeProps.containerId}
             >
                 <AnimatePresence>
                     {this.renderBlock()}

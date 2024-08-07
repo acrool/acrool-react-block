@@ -25,6 +25,7 @@ export type THideAll = () => void;
 
 
 export interface IBlockProps {
+    containerId?: string
     id?: string
     defaultMessage?: string
     isVisibleQueueKey?: boolean
