@@ -10,7 +10,6 @@ import {IBlockWrapperProps} from './types';
 interface IProps extends IBlockWrapperProps{
     style?: CSS.Properties
     className?: string
-    onClose?: (confirmValue?: string) => void
 }
 
 /**

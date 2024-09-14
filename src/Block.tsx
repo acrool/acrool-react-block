@@ -110,7 +110,7 @@ class Block extends React.Component<IBlockProps, IState> {
             <ReactPortal
                 id={this.typeProps.id}
                 className={styles.root}
-                containerId={this.typeProps.containerId}
+                containerSelector={this.typeProps.containerSelector}
             >
                 <AnimatePresence>
                     {this.renderBlock()}

@@ -2,9 +2,10 @@ import './App.css';
 
 import {BlockPortal} from '@acrool/react-block';
 import {GridThemeProvider} from '@acrool/react-grid';
-import SvgLoader from './assets/loader.svg?react';
+import {createElement} from 'react';
 
 import Banner from './components/Banner';
+import Loader from './components/Loader';
 import Example from './views/Example';
 
 
@@ -17,7 +18,7 @@ function App() {
                 <Example/>
 
                 <BlockPortal
-                    renderLoader={() => <SvgLoader width={30} height={30}/>}
+                    renderLoader={() => createElement(Loader, {width: '30px', height: '30px'}, null)}
                     isVisibleQueueKey={true}
                     defaultMessage="Loading..."
                 />

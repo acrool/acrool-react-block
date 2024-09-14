@@ -21,7 +21,7 @@ const Example = () => {
                     id: 1,
                     onClickRow: () => {
                         block.show();
-                        setTimeout(() => block.hide(), 3000);
+                        // setTimeout(() => block.hide(), 3000);
                     },
                     field: {
                         name: 'Default',

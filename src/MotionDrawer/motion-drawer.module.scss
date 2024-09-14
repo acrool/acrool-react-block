@@ -1,4 +1,6 @@
 .motion-drawer {
+    --default-portal-index: 915;
+
     overflow: hidden;
     margin: 0 auto;
 
@@ -12,6 +14,9 @@
     align-items: center;
     justify-content: center;
     cursor: not-allowed;
+
+    z-index: var(--block-portal-index, var(--default-portal-index));
+
 }
 
 .motion-mask-wrapper {

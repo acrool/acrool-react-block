@@ -25,11 +25,11 @@ export type THideAll = () => void;
 
 
 export interface IBlockProps {
-    containerId?: string
     id?: string
     defaultMessage?: string
     isVisibleQueueKey?: boolean
     renderLoader?: () => ReactNode
+    containerSelector?: () => HTMLElement | null;
 }
 
 type TVariantKey = 'initial'|'show'|'exit'
