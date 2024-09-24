@@ -22,7 +22,7 @@ export const defaultKey = 'globalBlock';
 
 class Block extends React.Component<IBlockProps, IState> {
     state: IState = {
-        rows: []
+        rows: [],
     };
 
     static defaultProps = {
@@ -48,11 +48,17 @@ class Block extends React.Component<IBlockProps, IState> {
      * @param args
      */
     show: TShow = (args) => {
+        const queryKey = args?.queueKey ?? defaultKey;
         this.setState(prev => {
             return {
                 rows: [...prev.rows, {queueKey: defaultKey, ...args}]
             };
         });
+
+
+        if(this.typeProps.onShow){
+            this.typeProps.onShow(queryKey);
+        }
 
     };
 
@@ -69,6 +75,10 @@ class Block extends React.Component<IBlockProps, IState> {
                 rows: removeByIndex(prev.rows, index),
             };
         });
+
+        if(this.typeProps.onHide){
+            this.typeProps.onHide(queueKey);
+        }
 
     };
 

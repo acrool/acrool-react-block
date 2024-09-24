@@ -6,5 +6,7 @@ export interface IBlockWrapperProps {
     renderLoader?: () => ReactNode,
     isVisibleQueueKey?: boolean,
     message?: ReactNode,
+    onShow?: (queueKey: string) => void
+    onHide?: (queueKey: string) => void
 }
 
