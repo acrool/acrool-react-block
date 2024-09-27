@@ -30,6 +30,8 @@ export interface IBlockProps {
     isVisibleQueueKey?: boolean
     renderLoader?: () => ReactNode
     containerSelector?: () => HTMLElement | null;
+    onShow?: (queueKey: string) => void
+    onHide?: (queueKey: string) => void
 }
 
 type TVariantKey = 'initial'|'show'|'exit'
