@@ -7,10 +7,6 @@ import styles from './block-wrapper.module.scss';
 import {IBlockWrapperProps} from './types';
 
 
-interface IProps extends IBlockWrapperProps{
-    style?: CSS.Properties
-    className?: string
-}
 
 /**
  * Message
@@ -22,7 +18,7 @@ const BlockWrapper = ({
     isVisibleQueueKey = false,
     loader,
     message,
-}: IProps) => {
+}: IBlockWrapperProps) => {
 
     /**
      * 渲染除錯資訊
