@@ -20,7 +20,7 @@ const BlockWrapper = ({
     className,
     queueKey,
     isVisibleQueueKey = false,
-    renderLoader,
+    loader,
     message,
 }: IProps) => {
 
@@ -42,8 +42,8 @@ const BlockWrapper = ({
      * 渲染讀取圖標
      */
     const renderLoaderWrapper = () => {
-        if(renderLoader){
-            return renderLoader();
+        if(loader){
+            return loader;
         }
         return <SvgLoader className={styles.loadingSvg}/>;
     };

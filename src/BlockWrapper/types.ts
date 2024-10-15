@@ -3,7 +3,7 @@ import {ReactNode} from 'react';
 
 export interface IBlockWrapperProps {
     queueKey: string,
-    renderLoader?: () => ReactNode,
+    loader?: ReactNode,
     isVisibleQueueKey?: boolean,
     message?: ReactNode,
     onShow?: (queueKey: string) => void
