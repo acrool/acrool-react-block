@@ -5,7 +5,7 @@ import {ReactNode} from 'react';
 export interface IBlockWrapperProps {
     style?: CSS.Properties
     className?: string
-    queueKey: string,
+    queueKey?: string,
     loader?: ReactNode,
     isVisibleQueueKey?: boolean,
     message?: ReactNode,

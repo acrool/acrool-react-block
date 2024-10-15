@@ -1,5 +1,4 @@
 import {clsx} from 'clsx';
-import CSS from 'csstype';
 import React from 'react';
 
 import SvgLoader from '../assets/loader.svg?react';
