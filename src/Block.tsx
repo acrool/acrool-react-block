@@ -107,7 +107,7 @@ class Block extends React.Component<IBlockProps, IState> {
         return <MotionDrawer key="block">
             <BlockWrapper
                 isVisibleQueueKey={this.props.isVisibleQueueKey}
-                renderLoader={this.props.renderLoader}
+                loader={this.props.loader}
                 message={message ?? this.props.defaultMessage}
                 {...itemArg}
             />

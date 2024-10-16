@@ -1,5 +1,4 @@
 import {clsx} from 'clsx';
-import CSS from 'csstype';
 import React from 'react';
 
 import SvgLoader from '../assets/loader.svg?react';
@@ -7,10 +6,6 @@ import styles from './block-wrapper.module.scss';
 import {IBlockWrapperProps} from './types';
 
 
-interface IProps extends IBlockWrapperProps{
-    style?: CSS.Properties
-    className?: string
-}
 
 /**
  * Message
@@ -20,9 +15,9 @@ const BlockWrapper = ({
     className,
     queueKey,
     isVisibleQueueKey = false,
-    renderLoader,
+    loader,
     message,
-}: IProps) => {
+}: IBlockWrapperProps) => {
 
     /**
      * 渲染除錯資訊
@@ -42,8 +37,8 @@ const BlockWrapper = ({
      * 渲染讀取圖標
      */
     const renderLoaderWrapper = () => {
-        if(renderLoader){
-            return renderLoader();
+        if(loader){
+            return loader;
         }
         return <SvgLoader className={styles.loadingSvg}/>;
     };
