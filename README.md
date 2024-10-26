@@ -60,7 +60,7 @@ const App = () => {
             <BaseUsed/>
             <BlockPortal
                 isVisibleQueueKey={false}
-                renderLoader={<Loader/>}
+                loader={<Loader/>}
                 defaultMessage="Loading..."
             />
         </div>
@@ -94,7 +94,6 @@ const Example = () => {
 
 - block.show
 - block.hide
-- toast.hideAll
 
 
 There is also a example that you can play with it:
