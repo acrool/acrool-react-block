@@ -13,10 +13,10 @@
   version "0.0.0"
   uid ""
 
-"@acrool/react-grid@^5.2.5-alpha.1":
-  version "5.2.5-alpha.1"
-  resolved "https://registry.yarnpkg.com/@acrool/react-grid/-/react-grid-5.2.5-alpha.1.tgz#0e921e23ea63ac419526db40e28043adbe8ceed4"
-  integrity sha512-SVWNxB+3f3st05rEJM/Nm8Z9QOdZdXh5h4RjlisV9IbZ0t0q63/xGTo+EkCGpj3z3EKW9FaNZqOvE9HTtP8T8Q==
+"@acrool/react-grid@^5.2.5":
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/@acrool/react-grid/-/react-grid-5.2.5.tgz#672bc9f623b426dec244e31a04d37b7c9446eb59"
+  integrity sha512-FLxeGdDsQDC7yqEngJ2ajXD/aSC/Z8aN0+HxZeCMgPVAhhK8GeV4/QQIc3C5Uh0MFqrC3rg6blgLNjoAQUBRuw==
 
 "@acrool/react-portal@^1.0.3":
   version "1.0.3"
