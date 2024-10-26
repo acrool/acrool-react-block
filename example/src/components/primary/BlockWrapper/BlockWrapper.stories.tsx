@@ -1,14 +1,12 @@
 import {BlockWrapper} from '@acrool/react-block';
-import {Flex} from '@acrool/react-grid';
 import type {Meta, StoryObj} from '@storybook/react';
-import {createElement} from 'react';
 
-import Loader from '../src/components/Loader';
+import Loader from '../../atoms/Loader';
 
 
 
 const meta = {
-    title: 'Components/BlockWrapper',
+    title: 'Primary/BlockWrapper',
     component: BlockWrapper,
     parameters: {
         layout: 'centered',
@@ -34,24 +32,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {},
-    render: function Render(args) {
-
-        return <Flex className="gap-2" style={{background: '#000'}}>
-            <BlockWrapper {...args}/>
-        </Flex>;
-    },
 };
 
 
 export const WithRenderLoader: Story = {
-    args: {},
-    render: function Render(args) {
-
-        return <Flex className="gap-2" style={{background: '#000'}}>
-            <BlockWrapper
-                {...args}
-                renderLoader={() => createElement(Loader, {width: '30px', height: '30px'}, null)}
-            />
-        </Flex>;
+    args: {
+        loader: <Loader width="30px" height="30px"/>
     },
 };

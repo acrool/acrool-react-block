@@ -30,8 +30,17 @@
 ## Install
 
 ```bash
-yarn add @acrool/react-block
+yarn add framer-motion @acrool/react-block
 ```
+
+in your packages. (Make the version of styled-component you use match the version of styled-component used in acrool-react-gird)
+
+```json
+"resolutions": {
+    "framer-motion": "^11.x"
+}
+```
+
 
 ## Usage
 
@@ -51,7 +60,7 @@ const App = () => {
             <BaseUsed/>
             <BlockPortal
                 isVisibleQueueKey={false}
-                renderLoader={<Loader/>}
+                loader={<Loader/>}
                 defaultMessage="Loading..."
             />
         </div>
@@ -85,7 +94,6 @@ const Example = () => {
 
 - block.show
 - block.hide
-- toast.hideAll
 
 
 There is also a example that you can play with it:
