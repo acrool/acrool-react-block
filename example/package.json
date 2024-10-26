@@ -4,12 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "tsc && vite build",
-    "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "pages:dev": "wrangler pages dev --proxy 3000 -- yarn dev",
-    "pages:deploy": "NODE_VERSION=18 yarn build-storybook && wrangler pages deploy ./storybook-static --project-name=acrool-react-table-storybook --branch main"
+    "pages:deploy": "NODE_VERSION=18 yarn build-storybook && wrangler pages deploy ./storybook-static --project-name=acrool-react-block --branch main"
   },
   "resolutions": {
     "styled-components": "5.3.9"
