@@ -1,11 +1,12 @@
+import {block} from '@acrool/react-block';
 import type {Meta, StoryObj} from '@storybook/react';
-import {block} from "@acrool/react-block";
-import Button from "../../atoms/Button";
+
+import Button from '../../atoms/Button';
 
 
 
 const meta = {
-    title: 'Primary/Block',
+    title: 'Primary/block',
     parameters: {
         layout: 'centered',
         actions: {argTypesRegex: '^on.*'},

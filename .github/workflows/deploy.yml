@@ -2,6 +2,8 @@ name: Deploy Storybook to Pages
 
 on:
   push:
+    branches:
+      - storybook
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
@@ -17,6 +19,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Wait for npm publish
+        run: sleep 30  # 延遲30秒，可根據實際情況調整
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -24,9 +29,9 @@ jobs:
 
       - name: Replace local links with actual versions
         run: |
-          sed -i 's#"@acrool/react-skeleton": "link:.."#"@acrool/react-block": "latest"#' package.json
-          sed -i 's#"react": "link:../node_modules/react"#"react": "^18.2.0"#' package.json
-          sed -i 's#"react-dom": "link:../node_modules/react-dom"#"react-dom": "^18.2.0"#' package.json
+          sed -i 's#"@acrool/react-block": "link:.."#"@acrool/react-block": "latest"#' package.json
+          sed -i 's#"react": "link:../node_modules/react"#"react": "^18.0.0"#' package.json
+          sed -i 's#"react-dom": "link:../node_modules/react-dom"#"react-dom": "^18.0.0"#' package.json
 
       - name: Install dependencies
         run: yarn install
@@ -38,6 +43,6 @@ jobs:
         run: yarn global add wrangler
 
       - name: Deploy to Cloudflare Pages
-        run: wrangler pages deploy ./storybook-static --project-name=acrool-react-table-storybook --branch main
+        run: wrangler pages deploy ./storybook-static --project-name=acrool-react-img --branch main
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
