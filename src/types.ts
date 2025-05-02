@@ -29,7 +29,7 @@ export interface IBlockProps {
     defaultMessage?: string
     isVisibleQueueKey?: boolean
     loader?: ReactNode
-    containerSelector?: () => HTMLElement | null;
+    containerSelector?: () => HTMLElement | null
     onShow?: (queueKey: string) => void
     onHide?: (queueKey: string) => void
 }
