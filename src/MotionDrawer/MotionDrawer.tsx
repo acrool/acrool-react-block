@@ -9,7 +9,7 @@ import styles from './motion-drawer.module.scss';
 const maskMotionProps: IBlockOptions = {
     variants: {
         initial: {opacity: 0, transition: {type:'spring'}},
-        show: {opacity: 1, transition: {type: 'just'}},
+        show: {opacity: 1, transition: {type: 'spring'}},
         exit: {opacity: 0},
     },
     transition: {
