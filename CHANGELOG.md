@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/acrool/acrool-react-block/compare/v1.1.3-alpha.0...v2.0.0) (2026-11-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* replace framer-motion with motion mini and externalize jsx-runtime
+
+### Features
+
+* replace framer-motion with motion mini and externalize jsx-runtime ([602f148](https://github.com/acrool/acrool-react-block/commit/602f148f108f14f7ac69805ec226c87d6d69f737))
+
 ### [1.1.3-alpha.0](https://github.com/acrool/acrool-react-block/compare/v1.1.2...v1.1.3-alpha.0) (2025-07-27)
 
 ### [1.1.2](https://github.com/acrool/acrool-react-block/compare/v1.1.1...v1.1.2) (2025-04-26)
