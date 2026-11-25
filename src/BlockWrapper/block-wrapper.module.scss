@@ -42,14 +42,6 @@
 }
 
 
-.buttonGroup{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  gap: 16px;
-}
-
 .loading-svg{
   animation: loading-rotate-animation .5s linear infinite;
   width: 30px;
