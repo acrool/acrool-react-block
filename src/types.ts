@@ -1,4 +1,3 @@
-import {Transition, Variant} from 'framer-motion';
 import {ReactNode} from 'react';
 
 import {IBlockWrapperProps} from './BlockWrapper';
@@ -34,12 +33,16 @@ export interface IBlockProps {
     onHide?: (queueKey: string) => void
 }
 
-type TVariantKey = 'initial'|'show'|'exit'
-export type TAnimationVariants = Record<TVariantKey, Variant>;
+export type TBlockEase = 'linear'|'easeIn'|'easeOut'|'easeInOut'|[number, number, number, number];
 
-export interface IBlockOptions {
-    variants?: TAnimationVariants
-    transition?: Transition
-    className?: string
-    isEnableHideWithClickMask?: boolean
+/**
+ * 一段動畫 (Web Animations API 的關鍵影格與選項，由 motion mini 播放)
+ */
+export interface IBlockAnimation {
+    keyframes: Record<string, string | number | Array<string | number>>
+    options?: {
+        duration?: number,
+        delay?: number,
+        ease?: TBlockEase,
+    }
 }

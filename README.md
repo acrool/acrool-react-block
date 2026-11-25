@@ -20,20 +20,25 @@
 </div>
 
 
-`^1.1.0 support react >=18.0.0 <20.0.0`
+`^2.0.0 support react >=18.0.0 <20.0.0, animation by motion (Web Animations API), no framer-motion`
+
+`^1.1.0 support react >=18.0.0 <20.0.0, framer-motion`
 
 
 
 ## Features
 
 - Supports queue block list
-- Plug and unplug using `@acrool/react-portal` and `framer-motion`
+- Plug and unplug using `@acrool/react-portal` and `motion` (AnimatePresence + mini animate)
+- Animations are skipped when the user enables "reduce motion"
 
 ## Install
 
 ```bash
 yarn add @acrool/react-block
 ```
+
+> `motion` is installed as a dependency. If your project also uses `motion`, keep a single copy (same major version) so the `AnimatePresence` context is shared.
 
 
 ## Usage
